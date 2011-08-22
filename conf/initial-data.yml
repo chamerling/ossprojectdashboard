@@ -1,0 +1,105 @@
+ Category(middleware):
+     name: Middleware
+     description: Middleware description
+
+ Category(bi):
+     name: Business Intelligence
+     description: BIBIBI
+     
+ Licence(gnu):
+     name: Apache2
+     url: http://www.opensource.org/licenses/Apache-2.0
+     
+ Licence(lgpl):
+     name: LGPL
+     url: http://www.opensource.org/licenses/lgpl-license.php
+ 
+ Tag(soa):
+     name: SOA
+
+ Tag(esb):
+     name: ESB
+
+ Tag(ws):
+     name: Web services
+     
+ Tag(ejb):
+     name: EJB
+
+ Tag(j2ee):
+     name: J2EE
+     
+ Tag(as):
+    name: Application Server
+     
+ Standard(jbi):
+     name: JBI
+     url: http://foo/bar
+     
+ Standard(soap):
+     name: SOAP
+     url: http://soap/com/
+
+ Standard(ejb):
+    name: EJB
+    url: http://soap/com/
+
+ Standard(j2ee):
+     name: J2EE
+     url: http://j2ee.org
+     
+ Status(incubation):
+     name: Incubation
+     description: Incubation description
+     
+ Status(mature):
+     name: Mature
+     description: Mature description
+
+ Project(petals):
+     name: petals
+     homepage: http://petals.ow2.org
+     description: PEtALS is the highly distributed Open Source ESB hosted by OW2. PEtALS delivers OW2 JavaTM Business Integration (JBI) platform. PEtALS provides lightweight and packaged integration solutions, based on JSR-208 specifications, with a strong focus on distribution and clustering. PEtALS helps you to integrate your Enterprise Business Units in order to provide a value added global solution. By assembling all your enterprise elements, you can provide new applications by re-using some existing ones. Thus, all your applications expose their logic by exposing services. This concept is know as a Service Oriented Architecture (SOA). The project also provides a set of JBI components and a component development kit that will help users to develop their own components.
+     tags:
+         - soa
+         - esb
+         - ws
+     category: middleware
+     licence: lgpl
+     status: mature
+     standards:
+         - jbi
+         - soap
+     ohlohId: 5946
+     twitter: petalslink
+     mailinglist: http://petals.ow2.org/ml.html
+     
+ Project(jonas):
+    name: jonas
+    homepage: http://jonas.ow2.org
+    description: JOnAS is a leading edge Java EE 5 certified Open Source OSGi Enterprise Server by OW2. JOnAS provides top level clustering mechanisms to ensure scalability and high availability. JOnAS' high level Management features satisfy professional SI administrators. Integration to the Enterprise SI is enabled through many mechanisms like Web Services, Java EE Connectors, LDAP access, IIOP, Websphere MQ connector, ... JOnAS 5 runs on top of an OSGi architecture, rendering trivial the integration of existing OSGi and iPOJO components.
+    tags:
+        - ejb
+        - j2ee
+        - as
+    category: middleware
+    licence: lgpl
+    status: mature
+    standards:
+        - j2ee
+    mailinglist: http://jonas.ow2.org/ml.html
+    
+ Project(easybeans):
+       name: easybeans
+       homepage: http://www.easybeans.net
+       description: EasyBeans is an open-source Enterprise Java Beans (EJB 3.0) container hosted by the OW2 consortium. 
+       tags:
+           - ejb
+       category: middleware
+       licence: lgpl
+       status: incubation
+       standards:
+           - ejb
+       mailinglist: http://mail.ow2.org/wws/lists/projects/easybeans
+    
+        

@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set title:'Projects tagged with ' + tag /}
+
+<section id="list-tag">
+#{if projects.size() >= 1}
+   #{if projects.size() == 1}
+   <h3>There is 1 project tagged '${tag}'</h3>
+   #{/if}
+   #{else}
+   <h3>There are ${projects.size()} projects tagged '${tag}'</h3>
+   #{/else}
+   #{list projects, as : 'project'}
+   #{display project:project/}
+   #{/list}
+#{/if} 
+#{else}
+    <h3>No project tagged '${tag}'</h3>
+#{/else}
+</section>
+
+ 
+ 

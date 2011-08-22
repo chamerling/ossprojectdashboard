@@ -1,0 +1,53 @@
+#{extends 'main.html' /}
+#{set title:'Project' /}
+<section id="last-events">
+<div id="project">
+        <h1>${project.name.capAll()}</h1>
+        <div class="project-description">
+        <p>${project.description.nl2br()}</p>
+        </div>
+
+        <div class="project-tags">
+        <p>Tagged as
+        #{list project.tags, as : "tag"}
+	        <a href="@{Application.listTagged(tag.name)}">${tag.name}</a>
+        #{/list}
+        </p>
+        </div>
+         
+        <div class="project-category">
+	        <p>Classified under <a href="@{Application.listCategory(project.category?.name)}">${project.category?.name}</a></p>
+        </div>
+        
+        <!--
+        <div class="project-status">
+        	<p>Status <a href="@{Application.listStatus(project.status?.id)}">${project.status?.name}</a></p>
+        </div>
+        -->
+        
+        <!--
+        <div class="project-standards">
+        <p>Standards</p>
+        <ul>
+	    #{list project.standards, as : "standard"}
+            <li><a href="${standard.url}">${standard.name}</a></li>
+        #{/list}
+        </ul>
+        </div>
+-->
+        <div class="project-licence">
+        	<p><a href="${project.licence?.url}">${project.licence?.name}</a></p>
+        </div>
+        
+        <!--
+        <div class="project-reports">
+        <h2>Reports</h2>
+        #{ohloh id:project.ohlohId/}
+        </div>
+        -->
+        
+        #{if project.twitter}
+        #{/if}
+</div>
+</section>
+    

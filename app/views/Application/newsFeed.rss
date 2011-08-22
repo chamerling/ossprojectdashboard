@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<rss version="2.0">
+    <channel>
+        <title>JUG News Feed</title>
+        <description>Get JUG news as RSS 2.0</description>
+		#{list news, as : "n"}
+        <item>
+            <title>${n.title}</title>
+            <description>${n.content}</description>
+            <pubDate>${n.date}</pubDate>
+            <link>@@{Application.newsDetail(n.id)}</link>
+        </item>
+		#{/list}
+    </channel>
+</rss>

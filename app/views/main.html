@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>#{get 'title' /}</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="@{'/public/stylesheets/bootstrap-1.0.0.css'}">
+        <link href="@{'/public/stylesheets/main.css'}" rel="stylesheet">
+        #{get 'moreStyles' /}
+        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    	<link rel="alternate" type="application/rss+xml" title="OSSProjectDashboard News RSS" href="@@{Application.newsFeed()}" />
+        <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        #{get 'moreScripts' /}
+    </head>
+    <body>
+    <div class="topbar">
+      <div class="fill">
+        <div class="container">
+          <h3><a href="@{Application.index()}">OSS ProjectDashBoard</a></h3>
+          <ul>
+            <li><a href="@{Application.index()}">Home</a></li>
+            <!--<li><a href="@{Application.about()}">About</a></li>-->
+          </ul>
+          <form action="">
+            <input type="text" placeholder="Search" />
+          </form>
+          <ul class="nav secondary-nav">
+            <li><a href="@{Application.about()}">About</a></li>
+            <li><a href="#">Manage</a></li>
+          </ul>
+        </div>
+      </div> <!-- /fill -->
+    </div>
+      
+    <div class="container">
+        #{doLayout /}
+    </div>
+        
+    <div id="footer"> 
+      <div class="inner"> 
+        <div class="container"> 
+          <p class="right"><a href="#">Back to top</a></p> 
+          <p> 
+            <b>OSS ProjectDashboard</b> is developed by <a href="http://twitter.com/chamerling" target="_blank">@chamerling</a>.<br />
+            Source are available at <a href="https://github.com/chamerling/ossprojectdashboard">Github</a> and licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>.
+          </p> 
+        </div> 
+      </div> 
+    </div>      
+  </body>
+</html>
