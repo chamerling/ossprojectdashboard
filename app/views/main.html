@@ -10,6 +10,7 @@
         <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
     	<link rel="alternate" type="application/rss+xml" title="OSSProjectDashboard News RSS" href="@@{Application.newsFeed()}" />
         <script src="@{'/public/javascripts/jquery-1.5.2.min.js'}" type="text/javascript" charset="utf-8"></script>
+        <script src="@{'/public/javascripts/application.js'}" type="text/javascript" charset="utf-8"></script>
         #{get 'moreScripts' /}
     </head>
     <body>
@@ -18,15 +19,25 @@
         <div class="container">
           <h3><a href="@{Application.index()}">OSS ProjectDashBoard</a></h3>
           <ul>
-            <li><a href="@{Application.index()}">Home</a></li>
-            <!--<li><a href="@{Application.about()}">About</a></li>-->
+            <!--- browse -->
+            <ul class="nav secondary-nav">
+              <li class="menu">
+                <a href="#" class="menu">Browse by...</a>
+                <ul class="menu-dropdown">
+                  <li><a href="@{Application.index()}#name">Name</a></li>
+                  <li><a href="@{Application.index()}#category">Category</a></li>
+                  <li><a href="@{Application.index()}#tag">Tag</a></li>
+                  <li><a href="@{Application.index()}#status">Status</a></li>
+                </ul>
+              </li>
+            </ul>
           </ul>
+          
           <form action="">
-            <input type="text" placeholder="Search" />
+            <input type="text" placeholder="Search project" />
           </form>
           <ul class="nav secondary-nav">
-            <li><a href="@{Application.about()}">About</a></li>
-            <li><a href="#">Manage</a></li>
+          	<li><a href="@{Application.about()}">About</a></li>
           </ul>
         </div>
       </div> <!-- /fill -->
