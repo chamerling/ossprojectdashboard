@@ -2,20 +2,21 @@
 #{set title:'Projects tagged with ' + tag /}
 
 <section id="list-tag">
-#{if projects.size() >= 1}
-   #{if projects.size() == 1}
-   <h3>There is 1 project tagged '${tag}'</h3>
-   #{/if}
-   #{else}
-   <h3>There are ${projects.size()} projects tagged '${tag}'</h3>
-   #{/else}
-   #{list projects, as : 'project'}
-   #{display project:project/}
-   #{/list}
-#{/if} 
-#{else}
-    <h3>No project tagged '${tag}'</h3>
-#{/else}
+  <div class="page-header">
+    <h1>Tag ${tag}</h1>
+  </div>
+  #{if projects.size() >= 1}
+    #{list projects, as : 'project'}
+    #{display project:project/}
+    #{/list}
+  #{/if} 
+  #{else}
+  <div class="alert alert-info">
+	<!-- <a class="close" data-dismiss="alert" href="#">×</a>-->
+  	<h4 class="alert-heading">Sorry!</h4>
+  	No project with tag '${tag}'
+  </div>
+  #{/else}
 </section>
 
  

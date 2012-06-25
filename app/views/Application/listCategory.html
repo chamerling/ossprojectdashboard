@@ -2,21 +2,24 @@
 #{set title:'Projects for category ' + category /}
 
 <section id="list-category">
-#{if projects.size() >= 1}
-   #{if projects.size() == 1}
-   <h3>There is 1 project for category '${category.name}'</h3>
-   #{/if}
-   #{else}
-   <h3>There are ${projects.size()} projects for category '${category.name}'</h3>
-   #{/else}
-   <div class="category-description"><p>${category.description}</p></div>
-   #{list projects, as : 'project'}
-   #{display project:project/}
-   #{/list}
-#{/if} 
-#{else}
-    <h3>No project tagged '${category.name}'</h3>
-#{/else}
+  <div class="page-header">
+    <h1>Category ${category.name}</h1>
+  </div>
+
+  <div class="well"><p>${category.description}</p></div>
+
+  #{if projects.size() >= 1}
+    #{list projects, as : 'project'}
+      #{display project:project/}
+    #{/list}   
+  #{/if} 
+  #{else}
+  <div class="alert alert-info">
+	<!--<a class="close" data-dismiss="alert" href="#">×</a>-->
+  	<h4 class="alert-heading">Sorry!</h4>
+  	No project under category '${category.name}'
+  </div>
+  #{/else}
 </section>
 
  

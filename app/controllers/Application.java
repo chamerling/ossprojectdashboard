@@ -15,13 +15,13 @@
  */
 package controllers;
 
-import play.*;
-import play.mvc.*;
-import ws.Twitter;
+import java.util.List;
 
-import java.util.*;
-
-import models.*;
+import models.Category;
+import models.Project;
+import models.Status;
+import models.Tag;
+import play.mvc.Controller;
 
 public class Application extends Controller {
 
@@ -33,12 +33,8 @@ public class Application extends Controller {
 		render(projects, tags, categories, status);
 	}
 
-	public static void project(Long id) {
-		Project project = Project.findById(id);
-		//List<String> tweets = null;
-		//if (project.twitter != null) {
-		//	tweets = Twitter.getTwitterStatus(project.twitter);
-		//}
+	public static void project(String name) {
+		Project project = Project.findByName(name);
 		render(project);
 	}
 

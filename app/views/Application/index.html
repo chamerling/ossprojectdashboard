@@ -2,44 +2,10 @@
 #{set title:'Home' /}
 
 <section id="last-events">
-<h1>Browse...</h1>
-<div id="projects">
-<a name="name"/>
-<h2>By Project</h2>
-<ul>
-#{list projects, as : "project"}
-<li><a href="@{Application.project(project.id)}">${project.name.capAll()}</a></li>
-#{/list}
-</ul>
-</div>
-
-<a name="tag"/>
-<div id="tags">
-<h2>By Tag</h2>
-<ul>
-#{list tags, as : "tag"}
-<li><a href="@{Application.listTagged(tag.name)}">${tag.name}</a></li>
-#{/list}
-</ul>
-</div>
-
-<a name="category"/>
-<div id="categories">
-<h2>By Category</h2>
-<ul>
-#{list categories, as : "cat"}
-<li><a href="@{Application.listCategory(cat.name)}">${cat.name}</a></li>
-#{/list}
-</ul>
-</div>
-
-<a name="status"/>
-<div id="status">
-<h2>By Status</h2>
-<ul>
-#{list status, as : "st"}
-<li><a href="@{Application.listStatus(st.id)}">${st.name}</a></li>
-#{/list}
-</ul>
-</div>
+	<div id="projects">
+		<a id="name"></a>
+   		#{list projects, as : 'project'}
+     		#{display project:project/}
+   		#{/list}
+   	</div>
 </section>

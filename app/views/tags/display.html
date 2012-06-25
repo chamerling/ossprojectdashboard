@@ -1,8 +1,14 @@
 <div class="project-inlist">
-	<h2 class="project-title">
-		<a href="@{Application.project(_project.id)}">${_project.name.capAll()}</a>
-	</h2>
-	<div class="project-description">
+	<a id="${_project.name}"></a>
+	<h2 class="project-title">${_project.name.capAll()}</h2>
+	#{list _project.tags, as : "tag"}
+		<span class="label label-success">${tag.name}</span>
+    #{/list}
+	<blockquote>
 		<p>${_project.description}</p>
-	</div>
+	</blockquote>
+	<p>
+		<a class="btn" href="@{Application.project(_project.name)}">View
+			details &raquo;</a>
+	</p>
 </div>

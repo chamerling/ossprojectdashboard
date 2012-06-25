@@ -1,7 +1,0 @@
-%{doc = _tweets ? _tweets.asXML() : []}%
-<pre>${_tweets}</pre>
-<ul>
-#{list doc.statuses.status}
-<li>${_.text.text()}</li>
-#{/list}
-</ul>

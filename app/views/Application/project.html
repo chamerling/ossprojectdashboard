@@ -3,51 +3,43 @@
 <section id="last-events">
 <div id="project">
         <h1>${project.name.capAll()}</h1>
-        <div class="project-description">
-        <p>${project.description.nl2br()}</p>
-        </div>
-
-        <div class="project-tags">
-        <p>Tagged as
+        <span class="label label-warning">${project.category?.name}</span>
         #{list project.tags, as : "tag"}
-	        <a href="@{Application.listTagged(tag.name)}">${tag.name}</a>
+	        <span class="label label-success">${tag.name}</span>
         #{/list}
-        </p>
-        </div>
-         
-        <div class="project-category">
-	        <p>Classified under <a href="@{Application.listCategory(project.category?.name)}">${project.category?.name}</a></p>
-        </div>
+        <br/><br/>
+          <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#main" data-toggle="tab">Description</a></li>
+            <li class=""><a href="#dev" data-toggle="tab">Dev</a></li>
+            <li class=""><a href="#contact" data-toggle="tab">Contact</a></li>
+            <li class=""><a href="#manage" data-toggle="tab">Manage</a></li>
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
+                <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
+              </ul>
+            </li>
+            -->
+          </ul>
         
-        <!--
-        <div class="project-status">
-        	<p>Status <a href="@{Application.listStatus(project.status?.id)}">${project.status?.name}</a></p>
-        </div>
-        -->
-        
-        <!--
-        <div class="project-standards">
-        <p>Standards</p>
-        <ul>
-	    #{list project.standards, as : "standard"}
-            <li><a href="${standard.url}">${standard.name}</a></li>
-        #{/list}
-        </ul>
-        </div>
--->
-        <div class="project-licence">
-        	<p><a href="${project.licence?.url}">${project.licence?.name}</a></p>
-        </div>
-        
-        <!--
-        <div class="project-reports">
-        <h2>Reports</h2>
-        #{ohloh id:project.ohlohId/}
-        </div>
-        -->
-        
-        #{if project.twitter}
-        #{/if}
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade active in" id="main">
+        		<blockquote><p>${project.description.nl2br()}</p></blockquote>
+            </div>
+            
+            <div class="tab-pane fade" id="dev">
+				<p>Dev</p>
+            </div>
+            
+            <div class="tab-pane fade" id="contact">
+				<p>@${project.twitter}</p>
+            </div>
+            
+            <div class="tab-pane fade" id="manage">
+				<p>Manage</p>
+            </div>
+          </div>
 </div>
 </section>
     

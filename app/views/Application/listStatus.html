@@ -1,21 +1,22 @@
 #{extends 'main.html' /}
 #{set title:'Projects with status with ' + status.name /}
  
-<section id="list-status"> 
-#{if projects.size() >= 1}
-    #{if projects.size() == 1}
-   <h3>There is 1 project for status '${status.name}'</h3>
-   #{/if}
-   #{else}
-   <h3>There are ${projects.size()} projects for status '${status.name}'</h3>
-   #{/else}
+<section id="list-status">
+  <div class="page-header">
+    <h1>Status ${status.name}</h1>
+  </div> 
+  #{if projects.size() >= 1}
    #{list projects, as : 'project'}
-   #{display project:project/}
-   #{/list}
-#{/if} 
-#{else}
-    <h3>No project tagged '${status.name}'</h3>
-#{/else}
+     #{display project:project/}
+   #{/list} 
+  #{/if} 
+  #{else}
+  <div class="alert alert-info">
+	<!-- <a class="close" data-dismiss="alert" href="#">×</a>-->
+  	<h4 class="alert-heading">Sorry!</h4>
+  	No project with status '${status.name}'
+  </div>
+  #{/else}
 </section>
 
  

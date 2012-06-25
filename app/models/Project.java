@@ -37,7 +37,7 @@ import play.db.jpa.Model;
  */
 @Entity
 public class Project extends Model {
-	
+
 	/* Standard information */
 
 	@Required
@@ -62,46 +62,50 @@ public class Project extends Model {
 
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	public Set<Standard> standards;
-	
+
 	@Required
 	@ManyToOne
 	public Status status;
 
 	public Date since;
-	
+
 	/* SOCIAL INFORMATION */
 	/**
 	 * Twitter id
 	 */
 	public String twitter;
-	
+
 	/**
 	 * A public RSS url so we can fetch news...
 	 */
 	public String rssURL;
-	
+
 	/* Forge information */
 	/**
 	 * Continuous integration URL
 	 */
 	public String ciURL;
-	
+
 	/**
 	 * public SCM url since we focus on open source products
 	 */
 	public String scmURL;
-	
+
 	/* Third party tools */
 	/**
 	 * If the project is on OHLOH, we will get data from this service...
 	 */
 	public String ohlohId;
-	
+
 	public String mailingList;
 
 	public Project() {
 		this.tags = new HashSet<Tag>();
 		this.standards = new HashSet<Standard>();
+	}
+
+	public static Project findByName(String name) {
+		return Project.find("name", name).first();
 	}
 
 	public static List<Project> findTaggedWith(String tag) {
@@ -126,7 +130,7 @@ public class Project extends Model {
 		tags.add(Tag.findOrCreateByName(name));
 		return this;
 	}
-	
+
 	@Override
 	public String toString() {
 		return name;
