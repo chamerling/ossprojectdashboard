@@ -1,45 +1,99 @@
 #{extends 'main.html' /}
-#{set title:'Project' /}
+#{set title:project.name /}
+#{set 'moreScripts'}
+<script src="@{'/public/assets/js/social/jquery.tweet.js'}"></script>
+#{/set}
+#{set 'moreStyles'}
+<link href="@{'/public/assets/css/social/jquery.tweet.css'}" rel="stylesheet">
+#{/set}
+
 <section id="last-events">
 <div id="project">
-        <h1>${project.name.capAll()}</h1>
-        <span class="label label-warning">${project.category?.name}</span>
+  <h1>${project.name.capAll()}</h1>
+    <div class="row">
+      <div class="span9">
+        Tags
         #{list project.tags, as : "tag"}
-	        <span class="label label-success">${tag.name}</span>
+	       	<span class="label label-success">${tag.name}</span>
         #{/list}
+        <br/>
+		Category
+        <span class="label label-warning">${project.category?.name}</span>
         <br/><br/>
-          <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#main" data-toggle="tab">Description</a></li>
-            <li class=""><a href="#dev" data-toggle="tab">Dev</a></li>
-            <li class=""><a href="#contact" data-toggle="tab">Contact</a></li>
-            <li class=""><a href="#manage" data-toggle="tab">Manage</a></li>
-            <!-- <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a href="#dropdown1" data-toggle="tab">@fat</a></li>
-                <li><a href="#dropdown2" data-toggle="tab">@mdo</a></li>
-              </ul>
-            </li>
-            -->
-          </ul>
+    	<div>
+	   		<blockquote><p>${project.description.nl2br()}</p></blockquote>
+	   	</div>
+	   	
+	   	<h2>News</h2>
+	   	#{if project.news}
+	   	#{list project.news, as : "n"}
+	   		<h3><a href="${n.link}" target="_blank">${n.title}</a> <small>${n.date}</small></h3>
+	       	<div>
+	   			<blockquote><p>${n.description.nl2br()}</p></blockquote>
+	   		</div>
+        #{/list}
+        #{/if}
+        #{else}
+        	<blockquote><p>No news for project</p></blockquote>
+        #{/else}
+
+	   	<h2>Release notes</h2>
+	   	#{if project.notes}
+			#{list project.notes, as : "n"}
+	   		<h3>${n.version} - ${n.title} <small>${n.date}</small></h3>
+	       	<div>
+	   			<blockquote><p>${n.description.nl2br()}</p></blockquote>
+	   		</div>
+        	#{/list}
+ 		#{/if}
+        #{else}
+        	<blockquote><p>No release notes for project</p></blockquote>
+        #{/else}	   			
+        </div>
         
-          <div id="myTabContent" class="tab-content">
-            <div class="tab-pane fade active in" id="main">
-        		<blockquote><p>${project.description.nl2br()}</p></blockquote>
-            </div>
-            
-            <div class="tab-pane fade" id="dev">
-				<p>Dev</p>
-            </div>
-            
-            <div class="tab-pane fade" id="contact">
-				<p>@${project.twitter}</p>
-            </div>
-            
-            <div class="tab-pane fade" id="manage">
-				<p>Manage</p>
-            </div>
+        <div class="span3">
+          <div class="well sidebar-nav">
+            <ul class="nav nav-list">
+              <li class="nav-header">Links</li>
+              <li><a href="${project.homepage}" target="_blank">Web site</a></li>
+              <li><a href="${project.scmURL}" target="_blank">Sources</a></li>
+              <li><a href="${project.bugtrackerURL}" target="_blank">Bug Tracker</a></li>
+              <li class="nav-header">Meta</li>
+              <li><a href="${project.licence.url}" target="_blank">${project.licence.name}</a></li>
+              <li>Registered on ${project?.since}</li>
+              <li class="nav-header">Quality</li>
+              <li><a href="#">FOSSology</a></li>
+              <li><a href="#">Antepedia</a></li>
+              <li><a href="#">Sonar</a></li>
+              <li><a href="#">OMM Report</a></li>
+            </ul>
           </div>
-</div>
+          
+          <div class="well sidebar-nav">
+          	<ul class="nav nav-list">
+          		<li>
+              		<a href="https://twitter.com/${project.twitter}" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @${project.twitter}</a>
+              		<div class="tweet"></div>
+              	</li>
+          	</ul>
+          </div>  
+      </div>
+	</div>
+  </div>
 </section>
+
+	<script type='text/javascript'>
+   		jQuery(function($){
+       	$(".tweet").tweet({
+           join_text: "auto",
+           username: "${project.twitter}",
+           avatar_size: 32,
+           count: 3,
+           loading_text: "Loading...",
+           auto_join_text_default: "",
+           auto_join_text_url: ""
+       	});
+   	});
+	</script>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
     
