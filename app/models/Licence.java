@@ -28,10 +28,10 @@ import play.db.jpa.Model;
 public class Licence extends Model {
 	
 	@Required
-	String name;
+	public String name;
 	
 	@Required
-	String url;
+	public String url;
 	
 	@Override
 	public String toString() {
