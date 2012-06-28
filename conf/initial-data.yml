@@ -6,7 +6,7 @@
      name: Business Intelligence
      description: BIBIBI
      
- Licence(gnu):
+ Licence(apache):
      name: Apache2
      url: http://www.opensource.org/licenses/Apache-2.0
      
@@ -73,6 +73,8 @@
      ohlohId: 5946
      twitter: petalslink
      mailinglist: http://petals.ow2.org/ml.html
+     scmURL: git://gitorious.ow2.org/petals
+     bugtrackerURL: http://jira.ow2.org/petals
      
  Project(jonas):
     name: jonas
@@ -101,5 +103,27 @@
        standards:
            - ejb
        mailinglist: http://mail.ow2.org/wws/lists/projects/easybeans
+      
+ News(n1):
+   title: The news 1 title
+   description: This is the description of the news N1
+   date: 2012-01-01
+   link: http://chamerling.org/bar
+   project: petals
+
+ News(n2):
+    title: The news 2 title
+    description: This is the description of the news N2
+    date: 2012-01-02
+    link: http://chamerling.org/foo
+    project: petals
     
+ ReleaseNote(r1):
+   title: The news 2 title
+   version: 1.0.0
+   date: 2012-02-02
+   description: This is the release note content
+   downloadURL: http://chamerling.org/foo
+   project: petals
+
         

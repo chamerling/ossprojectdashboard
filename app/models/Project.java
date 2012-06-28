@@ -15,6 +15,7 @@
  */
 package models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -28,7 +29,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import play.data.validation.Required;
-import play.data.validation.Valid;
 import play.db.jpa.Model;
 
 /**
@@ -66,7 +66,13 @@ public class Project extends Model {
 	@Required
 	@ManyToOne
 	public Status status;
-
+	
+	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    public List<News> news;
+	
+	@OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    public List<ReleaseNote> notes;
+	
 	public Date since;
 
 	/* SOCIAL INFORMATION */
@@ -90,6 +96,8 @@ public class Project extends Model {
 	 * public SCM url since we focus on open source products
 	 */
 	public String scmURL;
+	
+	public String bugtrackerURL;
 
 	/* Third party tools */
 	/**
